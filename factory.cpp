@@ -6,7 +6,7 @@ bool isItemType(string type)
 {
 	transform(type.begin(), type.end(), type.begin(), tolower);
 
-	vector<string> correctTypes = { "feature", "cartoon" };
+	vector<string> correctTypes = { "feature", "cartoon", "horror" };
 
 	if (find(correctTypes.begin(), correctTypes.end(), type) != correctTypes.end())
 		return true;
@@ -18,7 +18,7 @@ item getItem(vector<string> params)
 {
 	transform(params[1].begin(), params[1].end(), params[1].begin(), tolower);
 
-	vector<string> types = { "feature", "cartoon" };
+	vector<string> types = { "feature", "cartoon", "horror" };
 	int idx = distance(types.begin(), find(types.begin(), types.end(), params[1]));
 
 	switch (idx)
@@ -27,6 +27,8 @@ item getItem(vector<string> params)
 			return FeatureFilm { params[0], params[2] };
 		case 1:
 			return CartoonFilm { params[0], toCartoonType(params[2]) };
+		case 2:
+			return HorrorFilm { params[0], params[2] };
 	}
 }
 

@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
 
 		try
 		{
-			value = factory::parse(lines[i], i);
+			value = factory::parse(lines[i], i + 1);
 		}
 		catch (string message)
 		{

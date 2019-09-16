@@ -5,8 +5,8 @@ void CircularList::push_back(item value)
 	if (!this->m_first)
 	{
 		this->m_first = make_shared<node>(value);
-		this->m_first->m_next = this->m_first;
 		this->m_last = this->m_first;
+		this->m_first->m_next = this->m_last.lock();
 	}
 	else
 	{

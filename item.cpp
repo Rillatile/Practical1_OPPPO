@@ -8,5 +8,7 @@ string unboxItem(item value)
 			return get<CartoonFilm>(value).getContent();
 		case 2:
 			return get<FeatureFilm>(value).getContent();
+		case 3:
+			return get<HorrorFilm>(value).getContent();
 	}
 }
