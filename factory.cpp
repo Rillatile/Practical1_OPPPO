@@ -24,17 +24,17 @@ item getItem(vector<string> params)
 	switch (idx)
 	{
 		case 0:
-			return FeatureFilm { params[0], params[2] };
+			return FeatureFilm { params[0], params[2], stof(params[3]) };
 		case 1:
-			return CartoonFilm { params[0], toCartoonType(params[2]) };
+			return CartoonFilm { params[0], toCartoonType(params[2]), stof(params[3]) };
 		case 2:
-			return HorrorFilm { params[0], params[2] };
+			return HorrorFilm { params[0], params[2], stof(params[3]) };
 	}
 }
 
 item factory::parse(string source, int lineNumber)
 {
-	const unsigned int paramsCount = 3;
+	const unsigned int paramsCount = 4;
 	vector<string> params = split(source, ";");
 
 	if (params.empty() || params.size() != paramsCount)
@@ -52,6 +52,13 @@ item factory::parse(string source, int lineNumber)
 			throw message;
 		}
 
-		return getItem(params);
+		try
+		{
+			return getItem(params);
+		}
+		catch (exception& e)
+		{
+			throw static_cast<string>(e.what());
+		}
 	}
 }

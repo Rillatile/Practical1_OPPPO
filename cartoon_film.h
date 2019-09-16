@@ -8,6 +8,7 @@ struct CartoonFilm
 {
 	std::string m_title;
 	CartoonType m_type;
+	float m_rating;
 
 	std::string getContent();
 };
