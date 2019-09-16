@@ -1,6 +1,8 @@
 #include "horror_film.h"
 
-std::string HorrorFilm::getContent()
+std::ofstream& operator<< (std::ofstream& out, const HorrorFilm& hf)
 {
-	return "Title: " + this->m_title + ", producer: " + this->m_producer + ", rating: " + std::to_string(this->m_rating);
+	out << "Title: " + hf.m_title + ", producer: " + hf.m_producer + ", rating: " + std::to_string(hf.m_rating);
+
+	return out;
 }

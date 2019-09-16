@@ -13,5 +13,4 @@ struct node
 	shared_ptr<node> m_next;
 
 	node(item value);
-	string getContent();
 };

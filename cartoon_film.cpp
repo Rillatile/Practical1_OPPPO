@@ -1,6 +1,8 @@
 #include "cartoon_film.h"
 
-std::string CartoonFilm::getContent()
+std::ofstream& operator<< (std::ofstream& out, const CartoonFilm& cf)
 {
-	return "Title: " + this->m_title + ", type: " + getStringCartoonType(this->m_type) + ", rating: " + std::to_string(this->m_rating);
+	out << "Title: " + cf.m_title + ", type: " + getStringCartoonType(cf.m_type) + ", rating: " + std::to_string(cf.m_rating);;
+
+	return out;
 }

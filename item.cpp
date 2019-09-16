@@ -1,14 +1,19 @@
 #include "item.h"
 
-string unboxItem(item value)
+std::ofstream& operator<< (std::ofstream& out, const item& value)
 {
 	switch (value.index())
 	{
 		case 1:
-			return get<CartoonFilm>(value).getContent();
+			out << get<CartoonFilm>(value);
+			break;
 		case 2:
-			return get<FeatureFilm>(value).getContent();
+			out << get<FeatureFilm>(value);
+			break;
 		case 3:
-			return get<HorrorFilm>(value).getContent();
+			out << get<HorrorFilm>(value);
+			break;
 	}
+
+	return out;
 }

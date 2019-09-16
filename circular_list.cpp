@@ -26,7 +26,8 @@ void CircularList::print(ofstream& out)
 
 	do
 	{
-		out << ++count << " - " << current.lock()->getContent() << endl;
+		out << ++count << " - ";
+		out << current.lock()->m_value << endl;
 		current = current.lock()->m_next;
 	} while (current.lock() != this->m_first);
 

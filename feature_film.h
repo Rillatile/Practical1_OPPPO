@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include <fstream>
+#include <iostream>
 
 struct FeatureFilm
 {
@@ -8,5 +10,5 @@ struct FeatureFilm
 	std::string m_producer;
 	float m_rating;
 
-	std::string getContent();
+	friend std::ofstream& operator<< (std::ofstream& out, const FeatureFilm& ff);
 };

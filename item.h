@@ -10,4 +10,4 @@ using namespace std;
 
 using item = variant<monostate, CartoonFilm, FeatureFilm, HorrorFilm>;
 
-string unboxItem(item value);
+std::ofstream& operator<< (std::ofstream& out, const item& value);

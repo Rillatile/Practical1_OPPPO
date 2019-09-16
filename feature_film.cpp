@@ -1,6 +1,8 @@
 #include "feature_film.h"
 
-std::string FeatureFilm::getContent()
+std::ofstream& operator<< (std::ofstream& out, const FeatureFilm& ff)
 {
-	return "Title: " + this->m_title + ", producer: " + this->m_producer + ", rating: " + std::to_string(this->m_rating);
+	out << "Title: " + ff.m_title + ", producer: " + ff.m_producer + ", rating: " + std::to_string(ff.m_rating);
+
+	return out;
 }

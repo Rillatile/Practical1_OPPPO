@@ -25,14 +25,10 @@ int main(int argc, char* argv[])
 	if (!in.is_open())
 	{
 		cout << "Can't open an input file." << endl;
-		in.close();
 		return 1;
 	}
 
 	vector<string> lines = getLines(in);
-
-	in.close();
-
 	auto cl = make_unique<CircularList>();
 
 	for (int i = 0; i < lines.size(); i++)
@@ -57,12 +53,10 @@ int main(int argc, char* argv[])
 	if (!out.is_open())
 	{
 		cout << "Can't open an output file." << endl;
-		out.close();
 		return 1;
 	}
 
 	cl->print(out);
-	out.close();
 
 	return 0;
 }

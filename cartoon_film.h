@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include <fstream>
+#include <iostream>
 
 #include "cartoon_type.h"
 
@@ -10,5 +12,5 @@ struct CartoonFilm
 	CartoonType m_type;
 	float m_rating;
 
-	std::string getContent();
+	friend std::ofstream& operator<< (std::ofstream& out, const CartoonFilm& cf);
 };
