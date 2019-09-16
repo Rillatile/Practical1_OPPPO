@@ -2,7 +2,6 @@
 
 #include <string>
 #include <fstream>
-#include <iostream>
 
 #include "cartoon_type.h"
 
