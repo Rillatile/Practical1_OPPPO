@@ -23,4 +23,5 @@ struct CircularList
 		CLIterator begin() const;
 		CLIterator end() const;
 		unsigned int size();
+		void remove(float minRating);
 };

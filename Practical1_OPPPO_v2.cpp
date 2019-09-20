@@ -57,6 +57,7 @@ int main(int argc, char* argv[])
 	}
 
 	cl->sort();
+	cl->remove(7.0);
 
 	CLIterator it = cl->begin();
 
