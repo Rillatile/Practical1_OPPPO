@@ -13,4 +13,6 @@ struct node
 	shared_ptr<node> m_next;
 
 	node(item value);
+	friend bool operator> (node& n1, node& n2);
+	friend bool operator< (node& n1, node& n2);
 };

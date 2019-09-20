@@ -56,7 +56,16 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
-	cl->print(out);
+	cl->sort();
+
+	CLIterator it = cl->begin();
+
+	do
+	{
+		out << (*it) << endl;
+		++it;
+
+	} while (it != cl->end());
 
 	return 0;
 }
