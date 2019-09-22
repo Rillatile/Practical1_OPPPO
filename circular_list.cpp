@@ -76,6 +76,8 @@ void CircularList::remove(float minRating)
 
 	weak_ptr<node> current = this->m_first;
 	weak_ptr<node> previous = this->m_last;
+	unsigned int counter = 0;
+	unsigned int startSize = this->size();
 
 	do
 	{
@@ -90,11 +92,15 @@ void CircularList::remove(float minRating)
 
 			if (current.lock() == this->m_first)
 				this->m_last = previous;
+
+			this->m_size--;
 		}
 		else
 		{
 			previous = current;
 			current = current.lock()->m_next;
 		}
-	} while (current.lock() != this->m_first);
+
+		counter++;
+	} while (counter != startSize);
 }
