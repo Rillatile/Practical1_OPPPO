@@ -5,6 +5,7 @@
 
 #include "cl_iterator.h"
 #include "node.h"
+#include "SortType.h"
 
 using namespace std;
 
@@ -19,7 +20,7 @@ struct CircularList
 		CircularList();
 		void push_back(item value);
 		//void print(ofstream& out);
-		void sort();
+		void sort(SortType sortType = SortType::Ascending);
 		CLIterator begin() const;
 		CLIterator end() const;
 		unsigned int size();

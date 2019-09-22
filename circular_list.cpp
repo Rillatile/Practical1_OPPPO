@@ -38,7 +38,7 @@ void CircularList::push_back(item value)
 	out << "Total number of items: " << count << endl;
 }*/
 
-void CircularList::sort()
+void CircularList::sort(SortType sortType)
 {
 	if (!this->m_first || this->size() < 2) return;
 
@@ -50,7 +50,7 @@ void CircularList::sort()
 
 		for (unsigned int j = 0; j < this->size() - i; j++)
 		{
-			if (*(n2.lock()) > *(n1.lock()))
+			if (sortType == SortType::Ascending ? *(n2.lock()) > * (n1.lock()) : *(n2.lock()) < * (n1.lock()))
 			{
 				n2.lock()->m_value.swap(n1.lock()->m_value);
 				flag = true;
